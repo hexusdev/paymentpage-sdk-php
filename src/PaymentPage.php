@@ -36,7 +36,7 @@ class PaymentPage
      * @param string $baseUrl
      * @return $this
      */
-    public function setBaseUrl(string $baseUrl): self
+    public function setBaseUrl(string $baseUrl)
     {
         if ($baseUrl) {
             $this->baseUrl = $baseUrl;
@@ -52,7 +52,7 @@ class PaymentPage
      *
      * @return string
      */
-    public function getUrl(Payment $payment): string
+    public function getUrl(Payment $payment)
     {
         return $this->baseUrl . '?'. http_build_query($payment->getParams()) . '&signature=' .
             urlencode($this->signatureHandler->sign($payment->getParams()));
