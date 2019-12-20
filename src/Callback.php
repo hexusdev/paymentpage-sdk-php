@@ -106,7 +106,7 @@ class Callback
      *
      * @return array
      */
-    public function getData(): array
+    public function getData()
     {
         return $this->data;
     }
@@ -126,7 +126,7 @@ class Callback
      *
      * @return string
      */
-    public function getPaymentStatus(): string
+    public function getPaymentStatus()
     {
         return $this->getValueByName('status', $this->getPayment());
     }
@@ -136,7 +136,7 @@ class Callback
      *
      * @return string
      */
-    public function getPaymentId(): string
+    public function getPaymentId()
     {
         return $this->getValueByName('id', $this->getPayment());
     }
@@ -146,7 +146,7 @@ class Callback
      *
      * @return string
      */
-    public function getSignature(): string
+    public function getSignature()
     {
         return $this->getValueByName('signature');
     }
@@ -160,7 +160,7 @@ class Callback
      *
      * @throws ProcessException
      */
-    public function toArray($rawData): array
+    public function toArray($rawData)
     {
         $data = json_decode($rawData, true);
 
@@ -201,7 +201,7 @@ class Callback
      *
      * @return boolean
      */
-    public function checkSignature(): bool
+    public function checkSignature()
     {
         $data = $this->data;
         $signature = $this->getSignature();
@@ -232,7 +232,7 @@ class Callback
      * Reads input data from gate
      * @return string
      */
-    public static function readData(): string
+    public static function readData()
     {
         return file_get_contents('php://input') ?: '{}';
     }
