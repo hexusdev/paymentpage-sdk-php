@@ -41,7 +41,7 @@ class Gate
      * @param string $paymentBaseUrl
      * @return Gate
      */
-    public function setPaymentBaseUrl(string $paymentBaseUrl = ''): self
+    public function setPaymentBaseUrl(string $paymentBaseUrl = '')
     {
         $this->paymentPageUrlBuilder->setBaseUrl($paymentBaseUrl);
 
@@ -55,7 +55,7 @@ class Gate
      *
      * @return string
      */
-    public function getPurchasePaymentPageUrl(Payment $payment): string
+    public function getPurchasePaymentPageUrl(Payment $payment)
     {
         return $this->paymentPageUrlBuilder->getUrl($payment);
     }
@@ -69,7 +69,7 @@ class Gate
      *
      * @throws ProcessException
      */
-    public function handleCallback(string $data): Callback
+    public function handleCallback(string $data)
     {
         return new Callback($data, $this->signatureHandler);
     }
